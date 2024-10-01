@@ -1,0 +1,183 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls;
+
+type
+  TForm1 = class(TForm)
+    shpEarth: TShape;
+    btnVenus: TButton;
+    btnMercury: TButton;
+    shpMercury: TShape;
+    btnEarth: TButton;
+    btnJupiter: TButton;
+    btnMars: TButton;
+    btnUranus: TButton;
+    btnSun: TButton;
+    shpSun: TShape;
+    shpJupiter: TShape;
+    shpUranus: TShape;
+    shpSaturn: TShape;
+    shpVenus: TShape;
+    shpMars: TShape;
+    shpNeptune: TShape;
+    btnNeptune: TButton;
+    btnSaturn: TButton;
+    procedure btnVenusClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btnMercuryClick(Sender: TObject);
+    procedure btnSunClick(Sender: TObject);
+    procedure btnEarthClick(Sender: TObject);
+    procedure btnMarsClick(Sender: TObject);
+    procedure btnJupiterClick(Sender: TObject);
+    procedure btnSaturnClick(Sender: TObject);
+    procedure btnUranusClick(Sender: TObject);
+    procedure btnNeptuneClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btnSaturnClick(Sender: TObject);
+begin
+  shpSun.Visible := False;
+  shpMercury.Visible := False;
+  shpVenus.Visible := False;
+  shpEarth.Visible := False;
+  shpMars.Visible := False;
+  shpJupiter.Visible := False;
+  shpSaturn.Visible := True;
+  shpUranus.Visible := False;
+  shpNeptune.Visible := False;
+end;
+
+procedure TForm1.btnSunClick(Sender: TObject);
+begin
+  shpSun.Visible := True;
+  shpMercury.Visible := False;
+  shpVenus.Visible := False;
+  shpEarth.Visible := False;
+  shpMars.Visible := False;
+  shpJupiter.Visible := False;
+  shpSaturn.Visible := False;
+  shpUranus.Visible := False;
+  shpNeptune.Visible := False;
+end;
+
+procedure TForm1.btnUranusClick(Sender: TObject);
+begin
+  shpSun.Visible := False;
+  shpMercury.Visible := False;
+  shpVenus.Visible := False;
+  shpEarth.Visible := False;
+  shpMars.Visible := False;
+  shpJupiter.Visible := False;
+  shpSaturn.Visible := False;
+  shpUranus.Visible := True;
+  shpNeptune.Visible := False;
+end;
+
+procedure TForm1.btnVenusClick(Sender: TObject);
+begin
+  shpSun.Visible := False;
+  shpMercury.Visible := False;
+  shpVenus.Visible := True;
+  shpEarth.Visible := False;
+  shpMars.Visible := False;
+  shpJupiter.Visible := False;
+  shpSaturn.Visible := False;
+  shpUranus.Visible := False;
+  shpNeptune.Visible := False;;
+end;
+
+procedure TForm1.btnEarthClick(Sender: TObject);
+begin
+  shpSun.Visible := False;
+  shpMercury.Visible := False;
+  shpVenus.Visible := False;
+  shpEarth.Visible := True;
+  shpMars.Visible := False;
+  shpJupiter.Visible := False;
+  shpSaturn.Visible := False;
+  shpUranus.Visible := False;
+  shpNeptune.Visible := False;
+end;
+
+procedure TForm1.btnJupiterClick(Sender: TObject);
+begin
+  shpSun.Visible := False;
+  shpMercury.Visible := False;
+  shpVenus.Visible := False;
+  shpEarth.Visible := False;
+  shpMars.Visible := False;
+  shpJupiter.Visible := True;
+  shpSaturn.Visible := False;
+  shpUranus.Visible := False;
+  shpNeptune.Visible := False;
+end;
+
+procedure TForm1.btnMarsClick(Sender: TObject);
+begin
+  shpSun.Visible := False;
+  shpMercury.Visible := False;
+  shpVenus.Visible := False;
+  shpEarth.Visible := False;
+  shpMars.Visible := True;
+  shpJupiter.Visible := False;
+  shpSaturn.Visible := False;
+  shpUranus.Visible := False;
+  shpNeptune.Visible := False;
+end;
+
+procedure TForm1.btnMercuryClick(Sender: TObject);
+begin
+  shpSun.Visible := False;
+  shpMercury.Visible := True;
+  shpVenus.Visible := False;
+  shpEarth.Visible := False;
+  shpMars.Visible := False;
+  shpJupiter.Visible := False;
+  shpSaturn.Visible := False;
+  shpUranus.Visible := False;
+  shpNeptune.Visible := False;
+end;
+
+procedure TForm1.btnNeptuneClick(Sender: TObject);
+begin
+  shpSun.Visible := False;
+  shpMercury.Visible := False;
+  shpVenus.Visible := False;
+  shpEarth.Visible := False;
+  shpMars.Visible := False;
+  shpJupiter.Visible := False;
+  shpSaturn.Visible := False;
+  shpUranus.Visible := False;
+  shpNeptune.Visible := True;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  shpSun.Brush.Color := clYellow;
+  shpMercury.brush.Color := clGray;
+  shpVenus.Brush.Color := clWebOrange;
+  shpEarth.Brush.Color := clGreen;
+  shpMars.Brush.Color := clRed;
+  shpJupiter.Brush.Color := clOlive;
+  shpSaturn.Brush.Color := clYellow;
+  shpUranus.Brush.Color := clWebLightSkyBlue;
+  shpNeptune.Brush.Color := clBlue
+end;
+
+
+end.

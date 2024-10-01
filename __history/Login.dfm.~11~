@@ -1,0 +1,88 @@
+object frmLogin: TfrmLogin
+  Left = 153
+  Top = 277
+  Caption = 'Login'
+  ClientHeight = 243
+  ClientWidth = 332
+  Color = clHighlight
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  Position = poDesigned
+  TextHeight = 15
+  object lblUser: TLabel
+    Left = 48
+    Top = 128
+    Width = 82
+    Height = 12
+    Caption = 'Username:'
+    Font.Charset = OEM_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'Terminal'
+    Font.Style = [fsBold, fsUnderline]
+    ParentFont = False
+  end
+  object lblPass: TLabel
+    Left = 48
+    Top = 165
+    Width = 82
+    Height = 12
+    Caption = 'Password:'
+    Font.Charset = OEM_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'Terminal'
+    Font.Style = [fsBold, fsUnderline]
+    ParentFont = False
+  end
+  object lblTitle: TLabel
+    Left = 72
+    Top = 32
+    Width = 174
+    Height = 18
+    Caption = 'SPACE EXPLORERS'
+    Font.Charset = OEM_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Terminal'
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+  end
+  object btnLog: TButton
+    Left = 48
+    Top = 200
+    Width = 89
+    Height = 25
+    Caption = 'Log in'
+    TabOrder = 0
+    OnClick = btnLogClick
+  end
+  object btnAccount: TButton
+    Left = 176
+    Top = 200
+    Width = 91
+    Height = 25
+    Caption = 'Create Account'
+    TabOrder = 1
+    OnClick = btnAccountClick
+  end
+  object edtUser: TEdit
+    Left = 136
+    Top = 123
+    Width = 131
+    Height = 23
+    Color = clRed
+    TabOrder = 2
+  end
+  object edtPass: TEdit
+    Left = 136
+    Top = 160
+    Width = 131
+    Height = 23
+    Color = clRed
+    TabOrder = 3
+  end
+end

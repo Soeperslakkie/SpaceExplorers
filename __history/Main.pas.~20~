@@ -1,0 +1,51 @@
+unit Main;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Login, Selection, Explorer;
+
+type
+  TMainForm = class(TForm)
+    procedure FormCreate(Sender: TObject);
+
+  private
+    frmLogin: TfrmLogin;
+    frmSelection: TfrmSelection;
+
+    procedure OnEnterExplorer();
+  public
+    { Public declarations }
+  end;
+
+var
+  MainForm: TMainForm;
+
+implementation
+
+{$R *.dfm}
+
+procedure TMainForm.OnEnterExplorer();
+begin
+  frmLogin.Visible := False;
+  frmSelection.Visible := True;
+  //frmExplorer := TfrmExplorer.Create();
+end;
+
+procedure TMainForm.FormCreate(Sender: TObject);
+begin
+  frmLogin := TfrmLogin.Create(Self);
+  frmLogin.Parent := Self;
+  frmLogin.Visible := True;
+  frmLogin.Align := alClient;
+  frmLogin.OnEnterExplorer := Self.OnEnterExplorer;
+
+  frmSelection := TfrmSelection.Create(Self);
+  frmSelection.Parent := Self;
+  frmSelection.Visible := False;
+  frmSelection.Align := alClient;
+end;
+
+end.

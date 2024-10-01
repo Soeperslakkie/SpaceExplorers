@@ -1,0 +1,61 @@
+unit Main;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Login, Selection, Explorer;
+
+type
+  TMainForm = class(TForm)
+    Timer1: TTimer;
+    procedure FormCreate(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+
+  private
+    { Private declarations }
+
+  public
+    { Public declarations }
+  end;
+
+var
+  MainForm: TMainForm;
+  frmLogin: TfrmLogin;
+  frmSelection: TfrmSelection;
+  frmExplorer: TfrmExplorer;
+
+implementation
+
+{$R *.dfm}
+
+procedure TMainForm.Timer1Timer(Sender: TObject);
+begin
+ if (frmLogin.bPass and frmLogin.bUser = True) then
+  begin
+    frmLogin.Hide;
+
+    frmSelection.Visible := True;
+    Timer1.Enabled := False;
+  end;
+
+end;
+
+procedure TMainForm.FormCreate(Sender: TObject);
+begin
+  frmLogin := TfrmLogin.Create(Self);
+  frmLogin.Parent := Self;
+  frmLogin.Visible := True;
+  frmLogin.Align := alClient;
+
+  frmSelection := TfrmSelection.Create(Self);
+  frmSelection.Parent := Self;
+  frmSelection.Visible := False;
+  frmSelection.Align := alClient;
+
+  frmExplorer := TfrmExplorer.Create(Self);
+  frmExplorer.Visible := False;
+end;
+
+end.

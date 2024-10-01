@@ -1,0 +1,91 @@
+object frmSelection: TfrmSelection
+  Left = 0
+  Top = 0
+  Width = 337
+  Height = 244
+  Align = alClient
+  Color = clMenuHighlight
+  ParentBackground = False
+  ParentColor = False
+  TabOrder = 0
+  object lblPlanet: TLabel
+    Left = 16
+    Top = 0
+    Width = 295
+    Height = 18
+    Caption = 'Choose a place to explore!'
+    Font.Charset = OEM_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Terminal'
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+    Visible = False
+  end
+  object rgpDwarf: TRadioGroup
+    Left = 235
+    Top = 24
+    Width = 89
+    Height = 134
+    Caption = 'Dwarf Planets'
+    Items.Strings = (
+      'Pluto'
+      'Eris'
+      'Haumea'
+      'Makemake'
+      'Ceres')
+    TabOrder = 0
+    Visible = False
+  end
+  object rgpMoon: TRadioGroup
+    Left = 120
+    Top = 24
+    Width = 89
+    Height = 209
+    Caption = 'Moons:'
+    Items.Strings = (
+      'The Moon'
+      'Ganymede'
+      'Titan'
+      'Io'
+      'Triton'
+      'Rhea'
+      'Charon'
+      'Dione'
+      'Enceladus'
+      'Mimas')
+    TabOrder = 1
+    Visible = False
+  end
+  object rgpOther: TRadioGroup
+    Left = 233
+    Top = 160
+    Width = 89
+    Height = 73
+    Caption = 'Other:'
+    Items.Strings = (
+      'The Sun'
+      'Kuiper Belt')
+    TabOrder = 2
+    Visible = False
+  end
+  object rgpPlanet: TRadioGroup
+    Left = 8
+    Top = 24
+    Width = 89
+    Height = 209
+    Caption = 'Planets:'
+    Items.Strings = (
+      'Mercury'
+      'Venus'
+      'Earth'
+      'Mars'
+      'Jupiter'
+      'Saturn'
+      'Uranus'
+      'Neptune')
+    TabOrder = 3
+    Visible = False
+    OnClick = rgpPlanetClick
+  end
+end

@@ -1,0 +1,104 @@
+unit Login;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Explorer, Vcl.ExtCtrls;
+
+type
+  TfrmLogin = class(TForm)
+    btnLog: TButton;
+    btnAccount: TButton;
+    edtUser: TEdit;
+    edtPass: TEdit;
+    lblUser: TLabel;
+    lblPass: TLabel;
+    lblTitle: TLabel;
+    lblPlanet: TLabel;
+    rgpPlanet: TRadioGroup;
+    rgpMoon: TRadioGroup;
+    rgpOther: TRadioGroup;
+    rgpDwarf: TRadioGroup;
+    procedure btnLogClick(Sender: TObject);
+    procedure btnAccountClick(Sender: TObject);
+    procedure rgpPlanetClick(Sender: TObject);
+
+  private
+    { Private declarations }
+    bPass, bUser : Boolean;
+    sPass, sUser : String;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmLogin: TfrmLogin;
+
+implementation
+
+{$R *.dfm}
+
+
+procedure TfrmLogin.btnAccountClick(Sender: TObject);
+begin
+  sUser := InputBox('Account Creation','Username?:', '');
+  sPass := InputBox('Account Creation','Password?:', '');
+end;
+
+procedure TfrmLogin.btnLogClick(Sender: TObject);
+begin
+
+  if edtUser.Text = sUser then
+   bUser := True;
+
+  if edtPass.Text = sPass then
+   bPass := True;
+
+  if edtUser.Text = '' then
+  begin
+   bUser := False;
+   ShowMessage('Please enter a Username');
+  end;
+
+  if edtPass.Text = '' then
+  begin
+   bPass := False;
+   ShowMessage('Please enter a Password');
+  end;
+
+  if bPass and bUser = True then
+   begin
+    frmExplorer.Show;
+    lblPass.Visible := False;
+    lblTitle.Visible := False;
+    lblUser.Visible := False;
+    edtPass.Visible := False;
+    edtUser.Visible := False;
+    btnLog.Visible := False;
+    btnAccount.Visible := False;
+    lblPlanet.Visible := True;
+    rgpPlanet.Visible := True;
+    rgpDwarf.Visible := True;
+    rgpMoon.Visible := True;
+    rgpOther.Visible := True;
+   end else
+    ShowMessage('Username or Password incorrect, if you have not made an account, first make one and try again')
+
+end;
+
+procedure TfrmLogin.rgpPlanetClick(Sender: TObject);
+begin
+  case rgpPlanet.ItemIndex of
+    0: frmExplorer.imgItem.picture.loadfromfile('Z:\HELP\2024\Actual Skoolwerk\PAT\Images\Mercury.jpg');
+    1: frmExplorer.imgItem.picture.loadfromfile('Z:\HELP\2024\Actual Skoolwerk\PAT\Images\Venus.jpg');
+    2: frmExplorer.imgItem.picture.loadfromfile('Z:\HELP\2024\Actual Skoolwerk\PAT\Images\Earth.png');
+    3: frmExplorer.imgItem.picture.loadfromfile('Z:\HELP\2024\Actual Skoolwerk\PAT\Images\Mars.jpg');
+    4: frmExplorer.imgItem.picture.loadfromfile('Z:\HELP\2024\Actual Skoolwerk\PAT\Images\Jupiter.jpg');
+    5: frmExplorer.imgItem.picture.loadfromfile('Z:\HELP\2024\Actual Skoolwerk\PAT\Images\Saturn.jpg');
+    6: frmExplorer.imgItem.picture.loadfromfile('Z:\HELP\2024\Actual Skoolwerk\PAT\Images\Uranus.jpg');
+    7: frmExplorer.imgItem.picture.loadfromfile('Z:\HELP\2024\Actual Skoolwerk\PAT\Images\Neptune.jpg');
+  end;
+end;
+
+end.

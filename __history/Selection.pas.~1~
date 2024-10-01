@@ -1,0 +1,41 @@
+unit Selection;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
+  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Explorer;
+
+type
+  TFrame1 = class(TFrame)
+    rgpDwarf: TRadioGroup;
+    rgpMoon: TRadioGroup;
+    rgpOther: TRadioGroup;
+    rgpPlanet: TRadioGroup;
+    lblPlanet: TLabel;
+    procedure rgpPlanetClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFrame1.rgpPlanetClick(Sender: TObject);
+begin
+  case rgpPlanet.ItemIndex of
+    0: frmExplorer.imgItem.picture.loadfromfile('Z:\HELP\2024\Actual Skoolwerk\PAT\Images\Mercury.bmp');
+    1: frmExplorer.imgItem.picture.loadfromfile('Z:\HELP\2024\Actual Skoolwerk\PAT\Images\Venus.bmp');
+    2: frmExplorer.imgItem.picture.loadfromfile('Z:\HELP\2024\Actual Skoolwerk\PAT\Images\Earth.bmp');
+    3: frmExplorer.imgItem.picture.loadfromfile('Z:\HELP\2024\Actual Skoolwerk\PAT\Images\Mars.bmp');
+    4: frmExplorer.imgItem.picture.loadfromfile('Z:\HELP\2024\Actual Skoolwerk\PAT\Images\Jupiter.bmp');
+    5: frmExplorer.imgItem.picture.loadfromfile('Z:\HELP\2024\Actual Skoolwerk\PAT\Images\Saturn.bmp');
+    6: frmExplorer.imgItem.picture.loadfromfile('Z:\HELP\2024\Actual Skoolwerk\PAT\Images\Uranus.bmp');
+    7: frmExplorer.imgItem.picture.loadfromfile('Z:\HELP\2024\Actual Skoolwerk\PAT\Images\Neptune.bmp');
+  end;
+end;
+
+end.

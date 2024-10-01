@@ -1,0 +1,353 @@
+unit Selection;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
+  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Explorer, Quiz;
+
+type
+  TfrmSelection = class(TFrame)
+    rgpPlanet: TRadioGroup;
+    lblPlanet: TLabel;
+    btnLaunch: TButton;
+    rgpMoon: TRadioGroup;
+    rgpOther: TRadioGroup;
+    rgpDwarf: TRadioGroup;
+    btnQuiz: TButton;
+    procedure btnLaunchClick(Sender: TObject);
+    procedure rgpPlanetClick(Sender: TObject);
+    procedure rgpMoonClick(Sender: TObject);
+    procedure rgpDwarfClick(Sender: TObject);
+    procedure rgpOtherClick(Sender: TObject);
+    procedure btnQuizClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    iQNum : Integer;
+  end;
+var
+  frmExplorer: TfrmExplorer;
+
+implementation
+
+{$R *.dfm}
+
+//Goes to Explorer
+procedure TfrmSelection.btnLaunchClick(Sender: TObject);
+begin
+// Creates The Explorer
+  frmQuiz.Hide;
+
+  frmExplorer.Free;
+  frmExplorer := nil;
+
+  if not Assigned(frmExplorer) then
+    frmExplorer := TfrmExplorer.Create(Self);
+
+// Checks if anything was selected
+  if (rgpPlanet.ItemIndex and rgpDwarf.ItemIndex) and (rgpMoon.ItemIndex and rgpOther.ItemIndex) = -1 then
+   ShowMessage('You have not selected a place to travel to, please select one the options before continuing.')
+   else frmExplorer.Show;
+
+// Loads info & Images
+  case rgpPlanet.ItemIndex of
+      0: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Planets\Mercury.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Planets\Mercury.txt');
+           frmExplorer.lblName.Caption := 'Mercury';
+         end;
+      1: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Planets\Venus.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Planets\Venus.txt');
+           frmExplorer.lblName.Caption := 'Venus';
+         end;
+      2: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Planets\Earth.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Planets\Earth.txt');
+           frmExplorer.lblName.Caption := 'Earth';
+         end;
+      3: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Planets\Mars.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Planets\Mars.txt');
+           frmExplorer.lblName.Caption := 'Mars';
+         end;
+      4: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Planets\Jupiter.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Planets\Jupiter.txt');
+           frmExplorer.lblName.Caption := 'Jupiter';
+         end;
+      5: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Planets\Saturn.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Planets\Saturn.txt');
+           frmExplorer.lblName.Caption := 'Saturn';
+         end;
+      6: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Planets\Uranus.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Planets\Uranus.txt');
+           frmExplorer.lblName.Caption := 'Uranus';
+         end;
+      7: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Planets\Neptune.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Planets\Neptune.txt');
+           frmExplorer.lblName.Caption := 'Neptune';
+         end;
+  end;
+  rgpPlanet.ItemIndex := -1;
+
+  case rgpMoon.ItemIndex of
+      0: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Moon/Moon.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Moon\Moon.txt');
+           frmExplorer.lblName.Caption := 'Moon - Earth';
+         end;
+      1: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Moon/Europa.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Moon\Europa.txt');
+           frmExplorer.lblName.Caption := 'Europa - Jupiter';
+         end;
+      2: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Moon/Triton.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Moon\Triton.txt');
+           frmExplorer.lblName.Caption := 'Triton - Neptune';
+         end;
+      3: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Moon/Titan.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Moon\Titan.txt');
+           frmExplorer.lblName.Caption := 'Titan - Saturn';
+         end;
+      4: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Moon/Io.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Moon\Io.txt');
+           frmExplorer.lblName.Caption := 'Io - Jupiter';
+         end;
+      5: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Moon/Rhea.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Moon\Rhea.txt');
+           frmExplorer.lblName.Caption := 'Rhea - Saturn';
+         end;
+      6: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Moon/Ganymede.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Moon\Ganymede.txt');
+           frmExplorer.lblName.Caption := 'Ganymede - Jupiter';
+         end;
+      7: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Moon/Phobos.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Moon\Phobos.txt');
+           frmExplorer.lblName.Caption := 'Phobos - Mars';
+         end;
+      8: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Moon/Deimos.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Moon\Deimos.txt');
+           frmExplorer.lblName.Caption := 'Deimos - Mars';
+         end;
+  end;
+  rgpMoon.ItemIndex := -1;
+
+  case rgpDwarf.ItemIndex of
+      0: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Dwarf/Pluto.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('C:\Users\wianvandevyver\OneDrive\PAT\Database/Data/Dwarf\Pluto.txt');
+           frmExplorer.lblName.Caption := 'Pluto';
+         end;
+      1: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Dwarf/Eris.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('C:\Users\wianvandevyver\OneDrive\PAT\Database/Data/Dwarf\Eris.txt');
+           frmExplorer.lblName.Caption := 'Eris';
+         end;
+      2: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Dwarf/Makemake.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('C:\Users\wianvandevyver\OneDrive\PAT\Database/Data/Dwarf\Makemake.txt');
+           frmExplorer.lblName.Caption := 'Makemake';
+         end;
+      3: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Dwarf/Gonggong.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Dwarf\Gonggong.txt');
+           frmExplorer.lblName.Caption := 'Gonggong';
+         end;
+      4: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Dwarf/Quaoar.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Dwarf\Quaoar.txt');
+           frmExplorer.lblName.Caption := 'Quaoar';
+         end;
+      5: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Dwarf/Ceres.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database\Data\Dwarf\Ceres.txt');
+           frmExplorer.lblName.Caption := 'Ceres';
+         end;
+  end;
+  rgpDwarf.ItemIndex := -1;
+
+  case rgpOther.ItemIndex of
+      0: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Other/Sun.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Other\Sun.txt');
+           frmExplorer.lblName.Caption := 'The Sun';
+         end;
+      1: begin
+           frmExplorer.imgItem.picture.loadfromfile('.\Database/Images/Other/Kuiper.bmp');
+           frmExplorer.memBio.Lines.LoadFromFile('.\Database/Data/Other\Kuiper.txt');
+           frmExplorer.lblName.Caption := 'The Kuiper Belt';
+         end;
+  end;
+  rgpOther.ItemIndex := -1;
+
+end;
+
+//Goes to Quiz
+procedure TfrmSelection.btnQuizClick(Sender: TObject);
+begin
+// Creates Quiz and closes The Explorer
+  frmExplorer.Hide;
+
+  frmQuiz.Free;
+  frmQuiz := nil;
+
+  if not Assigned(frmQuiz) then
+    frmQuiz := TfrmQuiz.Create(Self);
+
+  if (rgpPlanet.ItemIndex and rgpDwarf.ItemIndex) and (rgpMoon.ItemIndex and rgpOther.ItemIndex) = -1 then
+   ShowMessage('You have not selected a place to be quizzed on, please select one the options before continuing.')
+   else frmQuiz.Show;
+
+  iQNum := 1;
+
+  case rgpPlanet.ItemIndex of
+      0: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Mercury.bmp');
+           frmQuiz.pnlQuestion1.Caption := 'What is the average surface temperature of Mercury?';
+           frmQuiz.pnlQuestion2.Caption := 'Why does Mercury have such a high density?';
+           frmQuiz.pnlQ1Option1.Caption := '430C by day and -180C by night.';
+           frmQuiz.pnlQ1Option2.Caption := '100C by day and -100C by night.';
+           frmQuiz.pnlQ2Option1.Caption := 'A significant iron core.';
+           frmQuiz.pnlQ2Option2.Caption := 'Its large size';
+         end;
+      1: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Venus.bmp');
+           frmQuiz.pnlQuestion1.Caption := '';
+           frmQuiz.pnlQuestion2.Caption := '';
+           frmQuiz.pnlQ1Option1.Caption := '';
+           frmQuiz.pnlQ1Option2.Caption := '';
+           frmQuiz.pnlQ2Option1.Caption := '';
+           frmQuiz.pnlQ2Option2.Caption := '';
+         end;
+      2: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Earth.bmp');
+           frmQuiz.pnlQuestion1.Caption := '';
+           frmQuiz.pnlQuestion2.Caption := '';
+           frmQuiz.pnlQ1Option1.Caption := '';
+           frmQuiz.pnlQ1Option2.Caption := '';
+           frmQuiz.pnlQ2Option1.Caption := '';
+           frmQuiz.pnlQ2Option2.Caption := '';
+         end;
+      3: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Mars.bmp');
+         end;
+      4: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Jupiter.bmp');
+         end;
+      5: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Saturn.bmp');
+         end;
+      6: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Uranus.bmp');
+         end;
+      7: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Neptune.bmp');
+         end;
+  end;
+
+    case rgpMoon.ItemIndex of
+      0: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Moon.bmp');
+         end;
+      1: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Europa.bmp');
+         end;
+      2: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Triton.bmp');
+         end;
+      3: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Titan.bmp');
+         end;
+      4: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Io.bmp');
+         end;
+      5: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Rhea.bmp');
+         end;
+      6: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Ganymede.bmp');
+         end;
+      7: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Phobos.bmp');
+         end;
+      8: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Deimos.bmp');
+         end;
+  end;
+
+    case rgpDwarf.ItemIndex of
+      0: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Pluto.bmp');
+         end;
+      1: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Eris.bmp');
+         end;
+      2: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Makemake.bmp');
+         end;
+      3: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Gonggong.bmp');
+         end;
+      4: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Quaoar.bmp');
+         end;
+      5: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Ceres.bmp');
+         end;
+  end;
+
+    case rgpOther.ItemIndex of
+      0: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Sun.bmp');
+         end;
+      1: begin
+           frmQuiz.imgItem.picture.loadfromfile('.\Database/Images/Planets\Kuiper.bmp');
+         end;
+  end;
+
+end;
+
+//Deselects other options to prevent multiple options from being selected simultaniously
+procedure TfrmSelection.rgpDwarfClick(Sender: TObject);
+begin
+  rgpMoon.ItemIndex := -1;
+  rgpOther.ItemIndex := -1;
+  rgpPlanet.ItemIndex := -1;
+end;
+
+procedure TfrmSelection.rgpMoonClick(Sender: TObject);
+begin
+  rgpPlanet.ItemIndex := -1;
+  rgpDwarf.ItemIndex := -1;
+  rgpOther.ItemIndex := -1;
+end;
+
+procedure TfrmSelection.rgpOtherClick(Sender: TObject);
+begin
+  rgpPlanet.ItemIndex := -1;
+  rgpDwarf.ItemIndex := -1;
+  rgpMoon.ItemIndex := -1;
+end;
+
+procedure TfrmSelection.rgpPlanetClick(Sender: TObject);
+begin
+  rgpMoon.ItemIndex := -1;
+  rgpOther.ItemIndex := -1;
+  rgpDwarf.ItemIndex := -1;
+end;
+
+end.

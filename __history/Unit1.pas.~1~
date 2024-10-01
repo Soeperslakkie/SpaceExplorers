@@ -1,0 +1,53 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TForm1 = class(TForm)
+    shpEarth: TShape;
+    btnEarth: TButton;
+    btnMercury: TButton;
+    shpMercury: TShape;
+    procedure btnEarthClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btnMercuryClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btnEarthClick(Sender: TObject);
+begin
+
+  shpEarth.Visible := True;
+  shpMercury.Visible := False;
+
+end;
+
+procedure TForm1.btnMercuryClick(Sender: TObject);
+begin
+
+  shpEarth.Visible := False;
+  shpMercury.Visible := True;
+
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  shpEarth.Brush.Color := clGreen;
+  shpMercury.brush.Color := clGray;
+end;
+
+end.

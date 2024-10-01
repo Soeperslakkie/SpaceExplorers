@@ -1,0 +1,40 @@
+unit Explorer;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Main;
+
+type
+  TfrmExplorer = class(TForm)
+    lblPlanet: TLabel;
+    rgpPlanet: TRadioGroup;
+    rgpMoon: TRadioGroup;
+    rgpOther: TRadioGroup;
+    RadioGroup1: TRadioGroup;
+    procedure rgpPlanetClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmExplorer: TfrmExplorer;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmExplorer.rgpPlanetClick(Sender: TObject);
+begin
+
+  case rgpPlanet.ItemIndex of
+    1: imgItem()
+    2:
+  end;
+
+end;
+
+end.

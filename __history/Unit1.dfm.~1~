@@ -1,0 +1,48 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 442
+  ClientWidth = 628
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  OnCreate = FormCreate
+  TextHeight = 15
+  object shpEarth: TShape
+    Left = 248
+    Top = 160
+    Width = 97
+    Height = 97
+    Shape = stCircle
+  end
+  object shpMercury: TShape
+    Left = 272
+    Top = 184
+    Width = 49
+    Height = 49
+    Shape = stCircle
+    Visible = False
+  end
+  object btnEarth: TButton
+    Left = 96
+    Top = 385
+    Width = 75
+    Height = 49
+    Caption = 'Earth'
+    TabOrder = 0
+    OnClick = btnEarthClick
+  end
+  object btnMercury: TButton
+    Left = 8
+    Top = 385
+    Width = 75
+    Height = 49
+    Caption = 'Mercury'
+    TabOrder = 1
+    OnClick = btnMercuryClick
+  end
+end

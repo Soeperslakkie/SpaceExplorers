@@ -1,0 +1,16 @@
+program Project1;
+
+uses
+  Vcl.Forms,
+  Login in 'Login.pas' {frmLogin},
+  Explorer in 'Explorer.pas' {frmExplorer};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmLogin, frmLogin);
+  Application.CreateForm(TfrmExplorer, frmExplorer);
+  Application.Run;
+end.

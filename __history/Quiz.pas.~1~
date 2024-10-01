@@ -1,0 +1,28 @@
+unit Quiz;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls;
+
+type
+  TfrmQuiz = class(TForm)
+    btnOption1: TButton;
+    btnOption2: TButton;
+    pnlQuestion: TPanel;
+    Image1: TImage;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmQuiz: TfrmQuiz;
+
+implementation
+
+{$R *.dfm}
+
+end.

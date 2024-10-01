@@ -1,0 +1,45 @@
+unit Explorer;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TfrmGame = class(TForm)
+    rgpPlanet: TRadioGroup;
+    lblPlanet: TLabel;
+    rgpMoon: TRadioGroup;
+    rgpOther: TRadioGroup;
+    RadioGroup1: TRadioGroup;
+    procedure rgpPlanetClick(Sender: TObject);
+  private
+  public
+    { Public declarations }
+  end;
+
+var
+  frmGame: TfrmGame;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmGame.rgpPlanetClick(Sender: TObject);
+begin
+
+  case rgpPlanet.ItemIndex of
+   1:
+   2:
+   3:
+   4:
+   5:
+   6:
+   7:
+   8:
+  end;
+
+end;
+
+end.
