@@ -64,6 +64,8 @@ begin
 
   frmQuiz := TfrmQuiz.Create(Self);
   frmQuiz.Visible := False;
+
+  frmSelection.Init;
 end;
 
 end.

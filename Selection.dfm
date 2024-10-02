@@ -105,6 +105,5 @@ object frmSelection: TfrmSelection
     Height = 25
     Caption = 'Quiz!'
     TabOrder = 5
-    OnClick = btnQuizClick
   end
 end
