@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Explorer, Quiz, IOUtils;
+  Explorer, IOUtils;
 
 type
   TThumbnailArray = Array of TPicture;
@@ -78,8 +78,6 @@ end;
 procedure TfrmSelection.btnLaunchClick(Sender: TObject);
 begin
 //Creates The Explorer
-  frmQuiz.Hide;
-
   frmExplorer.Free;
   frmExplorer := nil;
 

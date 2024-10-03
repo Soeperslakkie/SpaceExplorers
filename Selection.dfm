@@ -2,7 +2,7 @@ object frmSelection: TfrmSelection
   Left = 0
   Top = 0
   Width = 324
-  Height = 273
+  Height = 276
   Align = alClient
   Color = clGray
   ParentBackground = False
@@ -29,21 +29,21 @@ object frmSelection: TfrmSelection
     Caption = 'Planets:'
     Color = clGray
     Items.Strings = (
-      'Mercury'
-      'Venus'
       'Earth'
-      'Mars'
       'Jupiter'
+      'Mars'
+      'Mercury'
+      'Neptune'
       'Saturn'
       'Uranus'
-      'Neptune')
+      'Venus')
     ParentBackground = False
     ParentColor = False
     TabOrder = 0
     OnClick = rgpPlanetClick
   end
   object btnLaunch: TButton
-    Left = 24
+    Left = 16
     Top = 239
     Width = 137
     Height = 25
@@ -58,15 +58,15 @@ object frmSelection: TfrmSelection
     Height = 209
     Caption = 'Moon:'
     Items.Strings = (
-      'The Moon'
+      'Deimos'
       'Europa'
-      'Triton'
-      'Titan'
-      'Io'
-      'Rhea'
       'Ganymede'
+      'Io'
+      'The Moon'
       'Phobos'
-      'Deimos')
+      'Rhea'
+      'Titan'
+      'Triton')
     TabOrder = 2
     OnClick = rgpMoonClick
   end
@@ -77,8 +77,8 @@ object frmSelection: TfrmSelection
     Height = 65
     Caption = 'Other:'
     Items.Strings = (
-      'The Sun'
-      'Kuiper Belt')
+      'Kuiper Belt'
+      'The Sun')
     TabOrder = 3
     OnClick = rgpOtherClick
   end
@@ -89,18 +89,18 @@ object frmSelection: TfrmSelection
     Height = 138
     Caption = 'Dwarf Planets:'
     Items.Strings = (
-      'Pluto'
+      'Ceres'
       'Eris'
-      'Makemake'
       'Gonggong'
-      'Quaoar'
-      'Ceres')
+      'Makemake'
+      'Pluto'
+      'Quaoar')
     TabOrder = 4
     OnClick = rgpDwarfClick
   end
   object btnQuiz: TButton
-    Left = 184
-    Top = 240
+    Left = 188
+    Top = 239
     Width = 123
     Height = 25
     Caption = 'Quiz!'

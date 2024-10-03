@@ -1,6 +1,6 @@
 object frmExplorer: TfrmExplorer
-  Left = 694
-  Top = 98
+  Left = 878
+  Top = 353
   Caption = 'The Explorer!'
   ClientHeight = 426
   ClientWidth = 586
@@ -4843,9 +4843,10 @@ object frmExplorer: TfrmExplorer
     Top = 48
     Width = 217
     Height = 353
-    Color = clWindowFrame
+    Color = clScrollBar
+    Enabled = False
     Font.Charset = OEM_CHARSET
-    Font.Color = clSilver
+    Font.Color = clBlack
     Font.Height = -12
     Font.Name = 'Terminal'
     Font.Style = []
