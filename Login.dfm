@@ -1,12 +1,12 @@
 object frmLogin: TfrmLogin
   Left = 0
   Top = 0
-  Width = 310
-  Height = 262
+  Width = 331
+  Height = 280
   TabOrder = 0
   object lblUser: TLabel
-    Left = 48
-    Top = 144
+    Left = 56
+    Top = 168
     Width = 82
     Height = 12
     Caption = 'Username:'
@@ -18,8 +18,8 @@ object frmLogin: TfrmLogin
     ParentFont = False
   end
   object lblPass: TLabel
-    Left = 48
-    Top = 181
+    Left = 56
+    Top = 205
     Width = 82
     Height = 12
     Caption = 'Password:'
@@ -31,21 +31,21 @@ object frmLogin: TfrmLogin
     ParentFont = False
   end
   object lblTitle: TLabel
-    Left = 72
+    Left = 26
     Top = 40
-    Width = 174
-    Height = 18
+    Width = 281
+    Height = 24
     Caption = 'SPACE EXPLORERS'
     Font.Charset = OEM_CHARSET
     Font.Color = clWindowText
-    Font.Height = -21
+    Font.Height = -27
     Font.Name = 'Terminal'
-    Font.Style = [fsBold, fsItalic]
+    Font.Style = [fsBold, fsItalic, fsUnderline]
     ParentFont = False
   end
   object btnLog: TButton
-    Left = 48
-    Top = 216
+    Left = 56
+    Top = 240
     Width = 89
     Height = 25
     Caption = 'Log in'
@@ -53,8 +53,8 @@ object frmLogin: TfrmLogin
     OnClick = btnLogClick
   end
   object btnAccount: TButton
-    Left = 176
-    Top = 216
+    Left = 184
+    Top = 240
     Width = 91
     Height = 25
     Caption = 'Create Account'
@@ -62,16 +62,16 @@ object frmLogin: TfrmLogin
     OnClick = btnAccountClick
   end
   object edtUser: TEdit
-    Left = 136
-    Top = 139
+    Left = 144
+    Top = 163
     Width = 131
     Height = 23
     Color = clRed
     TabOrder = 2
   end
   object edtPass: TEdit
-    Left = 136
-    Top = 176
+    Left = 144
+    Top = 200
     Width = 131
     Height = 23
     Color = clRed

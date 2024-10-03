@@ -1,10 +1,10 @@
 object MainForm: TMainForm
-  Left = 823
-  Top = 687
+  Left = 511
+  Top = 457
   Caption = 'Space Explorers'
-  ClientHeight = 258
+  ClientHeight = 271
   ClientWidth = 326
-  Color = clHighlight
+  Color = clGrayText
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12

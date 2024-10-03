@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Login, Selection, Explorer, Quiz;
+  Login, Selection, Explorer;
 
 type
   TMainForm = class(TForm)
@@ -62,14 +62,7 @@ begin
   frmExplorer := TfrmExplorer.Create(Self);
   frmExplorer.Visible := False;
 
-  frmQuiz := TfrmQuiz.Create(Self);
-  frmQuiz.Visible := False;
+  frmSelection.Init;
 end;
 
 end.
-
-
-//Make that login check thing a loop somehow or smth (just get a loop somewhere)
-//Fix whatever tf you did at the quiz, only the heavens knows what happened there
-//DON'T try to use frames again (you remember access violation?)
-//Don't touch the quiz, it's running on prayers

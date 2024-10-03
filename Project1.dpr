@@ -5,8 +5,7 @@ uses
   Main in 'Main.pas' {MainForm},
   Explorer in 'Explorer.pas' {frmExplorer},
   Selection in 'Selection.pas' {frmSelection: TFrame},
-  Login in 'Login.pas' {frmLogin: TFrame},
-  Quiz in 'Quiz.pas' {frmQuiz};
+  Login in 'Login.pas' {frmLogin: TFrame};
 
 {$R *.res}
 
@@ -15,6 +14,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TfrmExplorer, frmExplorer);
-  Application.CreateForm(TfrmQuiz, frmQuiz);
   Application.Run;
 end.
