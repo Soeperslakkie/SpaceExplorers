@@ -66,7 +66,7 @@ object frmLogin: TfrmLogin
     Top = 163
     Width = 131
     Height = 23
-    Color = clRed
+    Color = clSkyBlue
     TabOrder = 2
   end
   object edtPass: TEdit
@@ -74,7 +74,16 @@ object frmLogin: TfrmLogin
     Top = 200
     Width = 131
     Height = 23
-    Color = clRed
+    Color = clSkyBlue
     TabOrder = 3
+  end
+  object btnShow: TButton
+    Left = 281
+    Top = 203
+    Width = 32
+    Height = 17
+    Caption = 'Show'
+    TabOrder = 4
+    OnClick = btnShowClick
   end
 end

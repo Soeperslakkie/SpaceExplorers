@@ -1,10 +1,11 @@
-unit Login;
+﻿unit Login;
 
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
-  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Selection;
 
 type
   TEnterExplorer = procedure() of object;
@@ -17,52 +18,97 @@ type
     btnAccount: TButton;
     edtUser: TEdit;
     edtPass: TEdit;
+    btnShow: TButton;
     procedure btnLogClick(Sender: TObject);
     procedure btnAccountClick(Sender: TObject);
+    procedure btnShowClick(Sender: TObject);
   private
-
-  public
-
+    { Private declarations }
+    FileVar: TextFile;
+    sPass, sUser, sFileUsername, sFilePassword, sLine : String;
+    LineParts: TArray<string>;
   public
     { Public declarations }
-    bPass, bUser : Boolean;
-    sPass, sUser : String;
+    bFound: Boolean;
   end;
 
 implementation
 
 {$R *.dfm}
 
+// Login
 procedure TfrmLogin.btnLogClick(Sender: TObject);
 begin
+  // Initialising
+  bFound := False;
 
-  if edtUser.Text = sUser then
-   bUser := True;
+  // Grabbing inputs
+  sUser := edtUser.Text;
+  sPass := edtPass.Text;
 
-  if edtPass.Text = sPass then
-   bPass := True;
+  // Open the text file for reading
+  AssignFile(FileVar, '.\Accounts.txt');
+  Reset(FileVar);  // Open the file again cuz it just has to for some reason
+    while not Eof(FileVar) do
+    begin
+      Readln(FileVar, sLine);  // Read em'
+      // Split em'
+      LineParts := sLine.Split([' ']);
 
-  if edtUser.Text = '' then
+      if Length(LineParts) = 2 then
+      begin
+        sFileUsername := LineParts[0];  // Looking for username
+        sFilePassword := LineParts[1];  // Looking for password
+
+        // Compare em'
+        if (sUser = sFileUsername) and (sPass = sFilePassword) then
+        begin
+          bFound := True;
+          Break;  // Leave the second something matches
+        end;
+      end;
+    end;
+    CloseFile(FileVar);  // Close em'
+
+
+  // Notify em'
+  if bFound then
   begin
-   bUser := False;
-   ShowMessage('Please enter a Username');
-  end;
-
-  if edtPass.Text = '' then
-  begin
-   bPass := False;
-   ShowMessage('Please enter a Password');
-  end;
-
-  if not bPass and bUser then
-   ShowMessage('Username or Password incorrect, if you have not made an account, first make one and try again');
+    ShowMessage('Login successful!');
+    Hide;
+  end else
+    ShowMessage('Invalid username or password.');
 
 end;
 
+// Show da password
+procedure TfrmLogin.btnShowClick(Sender: TObject);
+begin
+  if edtPass.PasswordChar = '●' then
+    edtPass.PasswordChar := #0
+  else
+    edtPass.PasswordChar := '●';
+end;
+
+// Account Create
 procedure TfrmLogin.btnAccountClick(Sender: TObject);
 begin
+  // Grabbin' info
   sUser := InputBox('Account Creation','Username?:', '');
   sPass := InputBox('Account Creation','Password?:', '');
+
+  // Open em'
+  AssignFile(FileVar, '.\Accounts.txt');
+  if FileExists('.\Accounts.txt') then
+    Append(FileVar)  // Append em'
+  else
+    Rewrite(FileVar); // Create em' (incase you delete everything smartass)
+  // Write em'
+  Writeln(FileVar, sUser + ' ' + sPass);
+  // Close em'
+  CloseFile(FileVar);
+
+  ShowMessage('Account details saved successfully!');
 end;
 
 end.
