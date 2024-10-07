@@ -1,20 +1,12 @@
 object frmLogin: TfrmLogin
-  Left = 647
-  Top = 294
-  Caption = 'Login'
-  ClientHeight = 235
-  ClientWidth = 325
-  Color = clHighlight
-  Font.Charset = DEFAULT_CHARSET
-  Font.Color = clWindowText
-  Font.Height = -12
-  Font.Name = 'Segoe UI'
-  Font.Style = []
-  Position = poDesigned
-  TextHeight = 15
+  Left = 0
+  Top = 0
+  Width = 331
+  Height = 280
+  TabOrder = 0
   object lblUser: TLabel
-    Left = 48
-    Top = 128
+    Left = 56
+    Top = 168
     Width = 82
     Height = 12
     Caption = 'Username:'
@@ -26,8 +18,8 @@ object frmLogin: TfrmLogin
     ParentFont = False
   end
   object lblPass: TLabel
-    Left = 48
-    Top = 165
+    Left = 56
+    Top = 205
     Width = 82
     Height = 12
     Caption = 'Password:'
@@ -39,21 +31,21 @@ object frmLogin: TfrmLogin
     ParentFont = False
   end
   object lblTitle: TLabel
-    Left = 72
-    Top = 32
-    Width = 174
-    Height = 18
+    Left = 26
+    Top = 40
+    Width = 281
+    Height = 24
     Caption = 'SPACE EXPLORERS'
     Font.Charset = OEM_CHARSET
     Font.Color = clWindowText
-    Font.Height = -21
+    Font.Height = -27
     Font.Name = 'Terminal'
-    Font.Style = [fsBold, fsItalic]
+    Font.Style = [fsBold, fsItalic, fsUnderline]
     ParentFont = False
   end
   object btnLog: TButton
-    Left = 48
-    Top = 200
+    Left = 56
+    Top = 240
     Width = 89
     Height = 25
     Caption = 'Log in'
@@ -61,8 +53,8 @@ object frmLogin: TfrmLogin
     OnClick = btnLogClick
   end
   object btnAccount: TButton
-    Left = 176
-    Top = 200
+    Left = 184
+    Top = 240
     Width = 91
     Height = 25
     Caption = 'Create Account'
@@ -70,19 +62,28 @@ object frmLogin: TfrmLogin
     OnClick = btnAccountClick
   end
   object edtUser: TEdit
-    Left = 136
-    Top = 123
+    Left = 144
+    Top = 163
     Width = 131
     Height = 23
-    Color = clRed
+    Color = clSkyBlue
     TabOrder = 2
   end
   object edtPass: TEdit
-    Left = 136
-    Top = 160
+    Left = 144
+    Top = 200
     Width = 131
     Height = 23
-    Color = clRed
+    Color = clSkyBlue
     TabOrder = 3
+  end
+  object btnShow: TButton
+    Left = 281
+    Top = 203
+    Width = 32
+    Height = 17
+    Caption = 'Show'
+    TabOrder = 4
+    OnClick = btnShowClick
   end
 end

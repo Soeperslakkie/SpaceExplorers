@@ -2,18 +2,17 @@ program Project1;
 
 uses
   Vcl.Forms,
-  Login in 'Login.pas' {frmLogin},
+  Main in 'Main.pas' {MainForm},
   Explorer in 'Explorer.pas' {frmExplorer},
-  Main in 'Main.pas' {frmMain};
+  Selection in 'Selection.pas' {frmSelection: TFrame},
+  Login in 'Login.pas' {frmLogin: TFrame};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TfrmExplorer, frmExplorer);
-  Application.CreateForm(TfrmMain, frmMain);
-  Application.CreateForm(TfrmLogin, frmLogin);
-
   Application.Run;
 end.
