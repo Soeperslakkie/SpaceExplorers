@@ -18,7 +18,6 @@ type
     rgpMoon: TRadioGroup;
     rgpOther: TRadioGroup;
     rgpDwarf: TRadioGroup;
-    btnQuiz: TButton;
     procedure btnLaunchClick(Sender: TObject);
     procedure rgpPlanetClick(Sender: TObject);
     procedure rgpMoonClick(Sender: TObject);

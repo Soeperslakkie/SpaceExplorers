@@ -31,7 +31,7 @@ implementation
 
 procedure TMainForm.Timer1Timer(Sender: TObject);
 begin
- if (frmLogin.bPass and frmLogin.bUser = True) then
+ if frmLogin.bFound then
   begin
     frmLogin.Hide;
 

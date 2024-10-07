@@ -75,12 +75,13 @@ object frmLogin: TfrmLogin
     Width = 131
     Height = 23
     Color = clSkyBlue
+    PasswordChar = #9679
     TabOrder = 3
   end
   object btnShow: TButton
     Left = 281
     Top = 203
-    Width = 32
+    Width = 40
     Height = 17
     Caption = 'Show'
     TabOrder = 4
