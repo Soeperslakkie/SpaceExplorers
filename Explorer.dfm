@@ -1,10 +1,14 @@
 object frmExplorer: TfrmExplorer
-  Left = 878
-  Top = 353
+  Left = 726
+  Top = 33
   Caption = 'The Explorer!'
   ClientHeight = 426
   ClientWidth = 586
   Color = clMedGray
+  Constraints.MaxHeight = 464
+  Constraints.MaxWidth = 598
+  Constraints.MinHeight = 464
+  Constraints.MinWidth = 598
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
   Font.Height = -48

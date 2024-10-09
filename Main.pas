@@ -9,9 +9,9 @@ uses
 
 type
   TMainForm = class(TForm)
-    Timer1: TTimer;
+    tUpdater: TTimer;
     procedure FormCreate(Sender: TObject);
-    procedure Timer1Timer(Sender: TObject);
+    procedure tUpdaterTimer(Sender: TObject);
 
   private
     { Private declarations }
@@ -29,14 +29,14 @@ implementation
 
 {$R *.dfm}
 
-procedure TMainForm.Timer1Timer(Sender: TObject);
+procedure TMainForm.tUpdaterTimer(Sender: TObject);
 begin
  if frmLogin.bFound then
   begin
     frmLogin.Hide;
 
     frmSelection.Visible := True;
-    Timer1.Enabled := False;
+    tUpdater.Enabled := False;
   end;
 
   frmSelection.rgpPlanet.ItemIndex := -1;

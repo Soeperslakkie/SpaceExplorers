@@ -1,10 +1,14 @@
 object MainForm: TMainForm
-  Left = 511
-  Top = 457
+  Left = 839
+  Top = 638
   Caption = 'Space Explorers'
-  ClientHeight = 271
-  ClientWidth = 326
+  ClientHeight = 253
+  ClientWidth = 332
   Color = clGrayText
+  Constraints.MaxHeight = 300
+  Constraints.MaxWidth = 350
+  Constraints.MinHeight = 300
+  Constraints.MinWidth = 350
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
@@ -13,9 +17,9 @@ object MainForm: TMainForm
   Position = poDesigned
   OnCreate = FormCreate
   TextHeight = 15
-  object Timer1: TTimer
+  object tUpdater: TTimer
     Interval = 10
-    OnTimer = Timer1Timer
+    OnTimer = tUpdaterTimer
     Left = 240
     Top = 144
   end

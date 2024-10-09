@@ -9,6 +9,8 @@ object frmLogin: TfrmLogin
     Top = 168
     Width = 82
     Height = 12
+    Align = alCustom
+    Anchors = []
     Caption = 'Username:'
     Font.Charset = OEM_CHARSET
     Font.Color = clBlack
@@ -22,6 +24,8 @@ object frmLogin: TfrmLogin
     Top = 205
     Width = 82
     Height = 12
+    Align = alCustom
+    Anchors = []
     Caption = 'Password:'
     Font.Charset = OEM_CHARSET
     Font.Color = clBlack
@@ -31,10 +35,12 @@ object frmLogin: TfrmLogin
     ParentFont = False
   end
   object lblTitle: TLabel
-    Left = 26
+    Left = 18
     Top = 40
     Width = 281
     Height = 24
+    Align = alCustom
+    Anchors = []
     Caption = 'SPACE EXPLORERS'
     Font.Charset = OEM_CHARSET
     Font.Color = clWindowText
@@ -48,6 +54,8 @@ object frmLogin: TfrmLogin
     Top = 240
     Width = 89
     Height = 25
+    Align = alCustom
+    Anchors = []
     Caption = 'Log in'
     TabOrder = 0
     OnClick = btnLogClick
@@ -57,6 +65,8 @@ object frmLogin: TfrmLogin
     Top = 240
     Width = 91
     Height = 25
+    Align = alCustom
+    Anchors = []
     Caption = 'Create Account'
     TabOrder = 1
     OnClick = btnAccountClick
@@ -66,6 +76,8 @@ object frmLogin: TfrmLogin
     Top = 163
     Width = 131
     Height = 23
+    Align = alCustom
+    Anchors = []
     Color = clSkyBlue
     TabOrder = 2
   end
@@ -74,6 +86,8 @@ object frmLogin: TfrmLogin
     Top = 200
     Width = 131
     Height = 23
+    Align = alCustom
+    Anchors = []
     Color = clSkyBlue
     PasswordChar = #9679
     TabOrder = 3
@@ -83,6 +97,8 @@ object frmLogin: TfrmLogin
     Top = 203
     Width = 40
     Height = 17
+    Align = alCustom
+    Anchors = []
     Caption = 'Show'
     TabOrder = 4
     OnClick = btnShowClick
