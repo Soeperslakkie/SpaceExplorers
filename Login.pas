@@ -97,16 +97,44 @@ begin
   sUser := InputBox('Account Creation','Username?:', '');
   sPass := InputBox('Account Creation','Password?:', '');
 
-  // Open em'
   AssignFile(FileVar, '.\Accounts.txt');
-  if FileExists('.\Accounts.txt') then
+  Reset(FileVar);  // Open the file again cuz it just has to for some reason
+    while not Eof(FileVar) do
+    begin
+      Readln(FileVar, sLine);  // Read em'
+      // Split em'
+      LineParts := sLine.Split([' ']);
+
+      if Length(LineParts) = 2 then
+      begin
+        sFileUsername := LineParts[0];  // Looking for username
+
+        // Compare em'
+        if sUser = sFileUsername then
+        begin
+          bCopyFound := True;
+          Break;  // Leave the second something matches
+        end;
+      end;
+    end;
+
+
+  if bCopyFound then
+  begin
+    ShowMessage('Username already taken, please try again.');
+  end else
+  begin
+    // Open em'
+    AssignFile(FileVar, '.\Accounts.txt');
+    if FileExists('.\Accounts.txt') then
     Append(FileVar)  // Append em'
-  else
+    else
     Rewrite(FileVar); // Create em' (incase you delete everything smartass)
 
-  Writeln(FileVar, sUser + ' ' + sPass);
-  CloseFile(FileVar);
-  ShowMessage('Account details saved successfully!');
+    // Write em'
+    Writeln(FileVar, sUser + ' ' + sPass);
+    ShowMessage('Account details saved successfully!');
+  end;
 
 end;
 
